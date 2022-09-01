@@ -1,3 +1,4 @@
+#Import library 
 from cryptography.fernet import Fernet
 
 class PasswordManager:
