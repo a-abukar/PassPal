@@ -1,6 +1,8 @@
-#Import library 
+###------------------Import Libraries-----------------------------#### 
 from cryptography.fernet import Fernet
 
+
+###------------------Password generation and encryption-----------------------------####
 class PasswordManager:
 
     def __init__(self):
@@ -98,15 +100,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-
-
-
-
-
-
-
 # pm = PasswordManager()
 # # pm.create_key("mykey.key")
 # pm.load_key("mykey.key")
@@ -117,3 +110,6 @@ if __name__ == "__main__":
 # test = PasswordManager.load_key()
 # f = open("mykey.key", "r") # To open file to be read
 # print(pm) # print file contents 
+
+
+###------------------GUI Section-----------------------------####
