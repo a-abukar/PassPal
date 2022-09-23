@@ -96,8 +96,8 @@ def main():
             print("Invalid choice")
 
 # Run above script
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 
 #------------------------GUI-Section--------------------------#
