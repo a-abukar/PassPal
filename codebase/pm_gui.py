@@ -1,7 +1,7 @@
 
 from cProfile import label
 from tkinter import *
-from main import *
+from pm_cli import *
 # import easygui
 
 # ----------------- Window, Canvas and image --------------- #
@@ -11,7 +11,7 @@ window.title("Password Manager")
 window.config(padx=20, pady=20)
 
 canvas = Canvas(height=300, width=300)
-logo_img = PhotoImage(file="logo.png")
+logo_img = PhotoImage(file="./logo.png")
 canvas.create_image(150, 150, image=logo_img)
 canvas.pack()
 canvas.grid(row=0, column=0)
