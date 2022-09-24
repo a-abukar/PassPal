@@ -37,7 +37,7 @@ def path():
 
     inputtxt.pack()
 
-    enterButton = Button(frame, text = "Enter file path", command=test)
+    enterButton = Button(frame, text = "Enter file path", command=lambda : test())
     enterButton.pack()
 
     lbl = Label(frame, text = "")
@@ -76,25 +76,29 @@ def path():
 
 
 # create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(input("Enter file path: ")))
-create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(input("Enter file path: ")))
+
+def close():
+    window.destroy()
+
+create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(path()))
 create_key_button.grid(row=1, column=0)
 
-load_key_button = Button(text="Load existing key")
+load_key_button = Button(text="Load existing key", command=lambda : pm.load_key(input("Enter key name: ")))
 load_key_button.grid(row=2, column=0)
 
-create_pass_button = Button(text="Create a new password file")
+create_pass_button = Button(text="Create a new password file", command=lambda : pm.create_password_file(input("Enter file path: ")))
 create_pass_button.grid(row=3, column=0)
 
-load_pass_button = Button(text="Load existing password file")
+load_pass_button = Button(text="Load existing password file", command=lambda : pm.load_password_file(input("Enter password file path: ")))
 load_pass_button.grid(row=4, column=0)
 
-add_pass_button = Button(text="Add a new password")
+add_pass_button = Button(text="Add a new password", command=lambda : pm.create_key(input("Enter site name: "), input("Enter site password: ")))
 add_pass_button.grid(row=5, column=0)
 
 get_pass_button = Button(text="Get a password")
 get_pass_button.grid(row=6, column=0)
 
-quit_button = Button(text="Quit")
+quit_button = Button(text="Quit", command=lambda : close())
 quit_button.grid(row=7, column=0)
 
 
