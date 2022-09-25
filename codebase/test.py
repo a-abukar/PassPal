@@ -1,5 +1,6 @@
 
 from cProfile import label
+from cgi import test
 from tkinter import *
 from pm_cli import *
 # import easygui
@@ -24,63 +25,64 @@ pm = PasswordManager()
 
 
 # Not currently in use - but try to use this to take user input for path (as required by the create_key functions)
-def path():
-    frame = Tk()
-    frame.title("Please Enter File Path")
-    frame.geometry('400x200')
+# def path():
+#     frame = Tk()
+#     frame.title("Please Enter File Path")
+#     frame.geometry('400x200')
 
-    inputtxt = Text(frame, height = 5, width = 20)
+#     inputtxt = Text(frame, height = 5, width = 20)
 
-    def test():
-        entry_text = StringVar()
-        path.entry = Entry(frame, width=10, textvariable=entry_text)
+#     def test():
+#         entry_text = StringVar()
+#         path.entry = Entry(frame, width=10, textvariable=entry_text)
 
-    inputtxt.pack()
+#     inputtxt.pack()
 
-    enterButton = Button(frame, text = "Enter file path", command=lambda : test())
-    enterButton.pack()
+#     enterButton = Button(frame, text = "Enter file path", command=lambda : test())
+#     enterButton.pack()
 
-    lbl = Label(frame, text = "")
-    lbl.pack()
+#     lbl = Label(frame, text = "")
+#     lbl.pack()
 
-    frame.mainloop()
+#     frame.mainloop()
 
-# class tinkerButton:
+class tinkerButton:
 
-#     def __init__(self):
-#         self.inp = None
+    def __init__(self):
+        self.inp = None
     
-#     def path(self, inp):
-#         frame = Tk()
-#         frame.title("Please Enter File Path")
-#         frame.geometry('400x200')
+    def path(self, inp):
+        frame = Tk()
+        frame.title("Please Enter File Path")
+        frame.geometry('400x200')
 
-#         inputtxt = Text(frame, height = 5, width = 20)
+        inputtxt = Text(frame, height = 5, width = 20)
 
-#         inp = inputtxt.get(1.0, "end-1c")
-#         # lbl.config(text = "Your chosen path is: "+inp)
+        inp = inputtxt.get(1.0, "end-1c")
+        # lbl.config(text = "Your chosen path is: "+inp)
 
-#         # def test():
-#         #     entry_text = tk.StringVar()
-#         #     path.entry = tk.Entry(frame, width=10, textvariable=entry_text)
+        def test():
+            entry_text = StringVar()
+            self.entry = Entry(frame, width=10, textvariable=entry_text)
+            return inp
 
-#         inputtxt.pack()
+        inputtxt.pack()
 
-#         enterButton = Button(frame, text = "Enter file path", command=inp)
-#         enterButton.pack()
+        enterButton = Button(frame, text = "Enter file path", command=lambda : test())
+        enterButton.pack()
 
-#         lbl = Label(frame, text = "")
-#         lbl.pack()
+        lbl = Label(frame, text = "")
+        lbl.pack()
 
-#         frame.mainloop()
+        frame.mainloop()
 
-
+tB = tinkerButton()
 # create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(input("Enter file path: ")))
 
 def close():
     window.destroy()
 
-create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(path=path()))
+create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(tB.path(test)))
 create_key_button.grid(row=1, column=0)
 
 load_key_button = Button(text="Load existing key", command=lambda : pm.load_key(input("Enter key name: ")))
