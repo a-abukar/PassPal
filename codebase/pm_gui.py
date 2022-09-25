@@ -80,13 +80,19 @@ def path():
 def close():
     window.destroy()
 
-create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(path=path()))
+password = {
+    "email": "hello",
+    "discord": "discordpass",
+    "apple": "applepass"
+}
+
+create_key_button = Button(text="Create a new key", command=lambda : pm.create_key(input("Enter file path: ")))
 create_key_button.grid(row=1, column=0)
 
 load_key_button = Button(text="Load existing key", command=lambda : pm.load_key(input("Enter key name: ")))
 load_key_button.grid(row=2, column=0)
 
-create_pass_button = Button(text="Create a new password file", command=lambda : pm.create_password_file(input("Enter file path: ")))
+create_pass_button = Button(text="Create a new password file", command=lambda : pm.create_password_file(input("Enter file path: "), password))
 create_pass_button.grid(row=3, column=0)
 
 load_pass_button = Button(text="Load existing password file", command=lambda : pm.load_password_file(input("Enter password file path: ")))
