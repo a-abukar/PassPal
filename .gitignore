@@ -1,1 +1,35 @@
 __pycache__
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.pydevproject
+*.project
+*.cproject
+*.settings/
+*.tmproj
+
+# Miscellaneous
+*.bak
+*.tmp
+*.log
+*.swp
+*.bak
+.DS_Store
+Thumbs.db
+*.python-version
+
